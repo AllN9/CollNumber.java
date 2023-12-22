@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -16,14 +19,15 @@ public class CollNumber{
     // Метод, который печатает список контактов
     public static void printBook(Map<String, ArrayList<Integer>> map){
         int count = 0;
+        List<Integer> list = new ArrayList<>();
         for (Entry<String, ArrayList<Integer>> entry:
             map.entrySet()) {
-            String phones = "";
             for(int el:
                 entry.getValue()){
-                phones = phones + el + ", ";
+                    list.add(el);
             }
-            System.out.printf("%s: %s \n", entry.getKey(), phones.substring(0, phones.length() - 2));
+            Collections.sort(list, Comparator.reverseOrder());
+            System.out.printf("%s: %s \n", entry.getKey(), list);
             count += 1;
         }
         if (count == 0) {
