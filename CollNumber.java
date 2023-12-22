@@ -29,6 +29,7 @@ public class CollNumber{
             Collections.sort(list, Comparator.reverseOrder());
             System.out.printf("%s: %s \n", entry.getKey(), list);
             count += 1;
+            list.removeAll(list);
         }
         if (count == 0) {
             System.out.println("Справочник еще не сформирован!");
